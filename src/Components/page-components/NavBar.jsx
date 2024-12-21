@@ -11,16 +11,16 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import { styled, Switch } from '@mui/material';
 import useFeedBacks from '../../redux/Providers/FeedBacksProviders';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 
 const AnimateAppBar = motion(AppBar)
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Contact Us', "About Us"];
+const settings = ['QuickScrape'];
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 62,
@@ -93,9 +93,15 @@ function NavBar() {
         setAnchorElUser(event.currentTarget);
     };
 
-    const handleCloseNavMenu = () => {
+    const handleCloseNavMenu = (text) => {
+        if (text && text?.toLowerCase() === 'about us') {
+            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        } else if (text && text?.toLowerCase() === 'contact us') {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
         setAnchorElNav(null);
     };
+
 
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
@@ -134,11 +140,12 @@ function NavBar() {
             }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                     <Typography
                         variant="h6"
                         noWrap
-                        component="a"
+                        component={Link}
+                        to={'/'}
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
@@ -147,9 +154,10 @@ function NavBar() {
                             letterSpacing: '.3rem',
                             color: 'inherit',
                             textDecoration: 'none',
+                            cursor: 'pointer',
                         }}
                     >
-                        LOGO
+                        QuickScrape
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -180,13 +188,13 @@ function NavBar() {
                             sx={{ display: { xs: 'block', md: 'none' } }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                <MenuItem key={page} onClick={() => handleCloseNavMenu(page)}>
                                     <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
                     <Typography
                         variant="h5"
                         noWrap
@@ -202,14 +210,14 @@ function NavBar() {
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
+                        QuickScrape
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
-                                onClick={handleCloseNavMenu}
+                                onClick={() => handleCloseNavMenu(page)}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 {page}
