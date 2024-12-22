@@ -1,10 +1,25 @@
 import React from 'react';
 import { Box, Grid, Typography, Button, Link } from '@mui/material';
 import { GitHub, LinkedIn, Facebook, Twitter } from '@mui/icons-material';
+import { motion } from 'framer-motion';
+
+const MotionBox = motion(Box)
 
 const Footer = () => {
+
+  const handelScroll = (text) => {
+    if (text && text?.toLowerCase() === 'about us') {
+      document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+    } else if (text && text?.toLowerCase() === 'contact us') {
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+  }
   return (
-    <Box
+    <MotionBox
+      initial={{ opacity: 0, y: 300 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: .6, ease: 'easeIn' }}
+      viewport={{ once: true }}
       sx={{
         backgroundColor: '#1e1e1e',
         color: 'white',
@@ -39,11 +54,11 @@ const Footer = () => {
         </Grid>
 
         <Grid item xs={12} sm={6} md={3}>
-          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+          <Typography variant="h6" onClick={handelScroll} sx={{ fontWeight: 'bold' }}>
             Contact
           </Typography>
-          <Typography variant="body2">Email: support@yourwebsite.com</Typography>
-          <Typography variant="body2">Phone: +123-456-7890</Typography>
+          <Typography variant="body2">Email: hafiznofal76@gmail.com</Typography>
+          <Typography variant="body2">Phone: +92-310-4032684</Typography>
         </Grid>
 
         <Grid item xs={12} sm={6} md={3}>
@@ -54,6 +69,7 @@ const Footer = () => {
             <Button
               variant="contained"
               color="primary"
+              onClick={() => window.location.href = 'https://github.com/Nofal71'}
               sx={{
                 borderRadius: '50%',
                 width: 40,
@@ -66,6 +82,7 @@ const Footer = () => {
             <Button
               variant="contained"
               color="primary"
+              onClick={() => window.location.href = 'https://www.linkedin.com/in/nofal-hassaan/'}
               sx={{
                 borderRadius: '50%',
                 width: 40,
@@ -74,29 +91,6 @@ const Footer = () => {
               }}
             >
               <LinkedIn />
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{
-                borderRadius: '50%',
-                width: 40,
-                height: 40,
-                marginRight: 1,
-              }}
-            >
-              <Facebook />
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{
-                borderRadius: '50%',
-                width: 40,
-                height: 40,
-              }}
-            >
-              <Twitter />
             </Button>
           </Box>
         </Grid>
@@ -107,7 +101,7 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Your Website. All rights reserved.
         </Typography>
       </Box>
-    </Box>
+    </MotionBox>
   );
 };
 

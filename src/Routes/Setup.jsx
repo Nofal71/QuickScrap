@@ -4,6 +4,7 @@ import Home from '../pages/Home/Home';
 import SignInPage from '../Authentications/LoginPage';
 import SignUpPage from '../Authentications/SignupPage';
 import NavBar from '../Components/page-components/NavBar';
+import Tool from '../pages/Tool/Tool';
 
 const MainLayout = ({ children }) => (
   <>
@@ -23,10 +24,16 @@ const Setup = () => {
     <Router>
       <Routes>
         <Route path='/' element={
-            <MainLayout>
-              <Home />
-            </MainLayout>
-          }
+          <MainLayout>
+            <Home />
+          </MainLayout>
+        }
+        />
+        <Route path='/tool' element={
+          <MainLayout>
+            <Tool />
+          </MainLayout>
+        }
         />
         <Route
           path='/login'

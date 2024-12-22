@@ -3,11 +3,13 @@ import { motion } from 'framer-motion';
 import HeroImage from '../../Images/Hero.webp';
 import React from 'react'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const MotionText = motion(Typography);
 
 const Hero = () => {
   const mode = useSelector(state => state.feedbacks.Theme);
+  const navigate = useNavigate()
   return (
         <div>
             <Box
@@ -73,6 +75,7 @@ const Hero = () => {
                         variant="contained"
                         color="primary"
                         size="large"
+                        onClick={() => navigate('/tool')}
                         sx={{
                             padding: '15px 40px',
                             textTransform: 'none',
