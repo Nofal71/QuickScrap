@@ -9,19 +9,19 @@ const ThemeConfig = ({ children }) => {
     const lightThemePalette = {
         mode: 'light',
         background: {
-            default: '#F5F7FA',
+            default: '#E3F2FD',
             paper: '#FFFFFF',
         },
         primary: {
-            light: '#81C784',
-            main: '#388E3C',
-            dark: '#1B5E20',
+            light: '#81D4FA',
+            main: '#0288D1',
+            dark: '#01579B',
             contrastText: '#FFFFFF',
         },
         secondary: {
-            light: '#FFEB3B',
-            main: '#FBC02D',
-            dark: '#F57F17',
+            light: '#80DEEA',
+            main: '#00ACC1',
+            dark: '#00796B',
             contrastText: '#000000',
         },
         text: {
@@ -35,7 +35,7 @@ const ThemeConfig = ({ children }) => {
             main: '#388E3C',
         },
         warning: {
-            main: '#F57C00',
+            main: '#FF9800',
         },
         info: {
             main: '#0288D1',
@@ -49,15 +49,15 @@ const ThemeConfig = ({ children }) => {
             paper: '#1D1D1D',
         },
         primary: {
-            light: '#66BB6A',
-            main: '#388E3C',
-            dark: '#1B5E20',
+            light: '#4FC3F7',
+            main: '#0288D1',
+            dark: '#01579B',
             contrastText: '#FFFFFF',
         },
         secondary: {
-            light: '#FFEB3B',
-            main: '#FBC02D',
-            dark: '#F57F17',
+            light: '#80DEEA',
+            main: '#00ACC1',
+            dark: '#00796B',
             contrastText: '#000000',
         },
         text: {
@@ -93,25 +93,25 @@ const ThemeConfig = ({ children }) => {
             MuiAppBar: {
                 styleOverrides: {
                     root: {
-                        backgroundColor: theme_mode === 'light' ? '#388E3C' : '#1B5E20',
+                        backgroundColor: theme_mode === 'light' ? '#0288D1' : '#01579B',
                     },
                 },
             },
             MuiButton: {
                 styleOverrides: {
                     contained: {
-                        backgroundColor: '#388E3C',
+                        backgroundColor: '#0288D1',
                         color: '#FFFFFF',
                         '&:hover': {
-                            backgroundColor: '#1B5E20',
+                            backgroundColor: '#01579B',
                         },
                     },
                     outlined: {
-                        borderColor: '#388E3C',
-                        color: '#388E3C',
+                        borderColor: '#0288D1',
+                        color: '#0288D1',
                         '&:hover': {
-                            borderColor: '#1B5E20',
-                            backgroundColor: 'rgba(56, 142, 60, 0.08)',
+                            borderColor: '#01579B',
+                            backgroundColor: 'rgba(2, 136, 209, 0.08)',
                         },
                     },
                 },
@@ -131,13 +131,13 @@ const ThemeConfig = ({ children }) => {
                     root: {
                         '& .MuiOutlinedInput-root': {
                             '& fieldset': {
-                                borderColor: '#388E3C',
+                                borderColor: '#0288D1',
                             },
                             '&:hover fieldset': {
-                                borderColor: '#1B5E20',
+                                borderColor: '#01579B',
                             },
                             '&.Mui-focused fieldset': {
-                                borderColor: '#388E3C',
+                                borderColor: '#0288D1',
                             },
                         },
                     },
